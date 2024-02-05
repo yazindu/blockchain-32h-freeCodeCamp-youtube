@@ -29,3 +29,8 @@ contract SimpleStorage{
         nameToFavouriteNumber[_name] = _favouriteNumber;
     }
 }
+
+// deployed in the below environment
+// Injected Provider - Metamask
+// Sepolia test network
+// url https://sepolia.etherscan.io/tx/0x20ec6031f0812029a2bdede9948d57915f96a89ab9155dbfb6cdf479e4653878
