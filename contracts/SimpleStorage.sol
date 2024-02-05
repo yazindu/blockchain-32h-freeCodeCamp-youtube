@@ -2,7 +2,7 @@
 pragma solidity ^0.8.8;
 
 contract SimpleStorage{
-    uint256 public favouriteNumber;
+    uint256 favouriteNumber;
 
     function store(uint256 _favouriteNumber) public {
         favouriteNumber = _favouriteNumber;
@@ -11,6 +11,8 @@ contract SimpleStorage{
     function retrieval() public view returns(uint256) {
         return favouriteNumber;
     }
+
+    mapping(string=>uint256) public nameToFavouriteNumber;
 
     //uint256[] numbersArray; //number array
     People[] public people;
@@ -21,8 +23,9 @@ contract SimpleStorage{
     }
 
     function addPerson(string memory _name, uint256 _favouriteNumber) public {
-        //people.push(People(_name, _favouriteNumber)); //one liner (don't even need to use memory keyword)
-        People memory newPerson = People({name: _name, favouriteNumber:_favouriteNumber});
-        people.push(newPerson);
+        people.push(People(_name, _favouriteNumber)); //one liner (don't even need to use memory keyword)
+        // People memory newPerson = People({name: _name, favouriteNumber:_favouriteNumber});
+        // people.push(newPerson);
+        nameToFavouriteNumber[_name] = _favouriteNumber;
     }
 }
